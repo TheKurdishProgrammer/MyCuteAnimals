@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data/>
+
+    <android.support.v7.widget.CardView
+        app:cardBackgroundColor="#cfcfcf"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="24dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:showIn="@layout/activity_main"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/next_prev"
+        android:layout_width="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:id="@+id/nameED"
+            android:layout_below="@id/prev"
+
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/nameED2"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:id="@+id/ageEd"
+            android:layout_below="@id/nameED"
+
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/ageEd2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Age" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:id="@+id/weightED"
+            android:layout_below="@id/ageEd"
+
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/weightED2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Weight" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/colorED"
+            android:layout_below="@id/weightED"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/colorED2"
+                android:layout_below="@+id/colorED"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Color" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/colorED"
+            android:onClick="addAnimal"
+            android:src="@drawable/ic_add_circle_black_24dp" />
+    </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</layout>
