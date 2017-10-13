@@ -45,19 +45,19 @@ public class MainActivity extends AppCompatActivity {
             myAnimals = gson.fromJson(jsonString, new TypeToken<Collection<Animal>>() {
             }.getType());
 
-            if (myAnimals != null) {
-                Log.v("Is Null", ":Nope");
-                if (myAnimals.size() != 0) {
-                    currentIndex = myAnimals.size();
-                    views.setMyAnimal(myAnimals.get(currentIndex-1));
-                    views.imageBlock.setImageURI(Uri.parse(myAnimals.get(currentIndex-1).getImageUri()));
-                } else
-                    Log.v("but size is:", ":Zero");
+            if (myAnimals.size() != 0) {
+                currentIndex = myAnimals.size();
+                views.setMyAnimal(myAnimals.get(currentIndex - 1));
+                views.imageBlock.setImageURI(Uri.parse(myAnimals.get(currentIndex - 1).getImageUri()));
 
             }
-        } else
-            myAnimals = new ArrayList<>();
+        }
+        else {
 
+            myAnimals = new ArrayList<>();
+            if(myAnimals.isEmpty())
+                resetAnimalInfo();
+        }
     }
 
 
@@ -79,12 +79,34 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
 
-            views.setMyAnimal(myAnimals.get(currentIndex-1));
-            views.imageBlock.setImageURI(Uri.parse(myAnimals.get(currentIndex-1).getImageUri()));
+            showAnimalInfo(currentIndex-1);
         } else
             Toast.makeText(this, "Album is Empty, Nothing to Show", Toast.LENGTH_SHORT).show();
 
     }
+
+    public void deleteAnimal(View v)
+    {
+        myAnimals.remove(currentIndex-1);
+        currentIndex--;
+
+        if(myAnimals.isEmpty()) {
+            resetAnimalInfo();
+        }else
+            if(currentIndex == myAnimals.size())
+            showAnimalInfo(currentIndex-1);
+
+        addAnimalStorage();
+    }
+
+    private void resetAnimalInfo() {
+        views.name.setText("Name:");
+        views.weight.setText("Weight:");
+        views.age.setText("Age:");
+        views.color.setText("Color:");
+        views.imageBlock.setImageResource(R.mipmap.ic_launcher);
+    }
+
 
     public void addAnimal(View v) {
 
@@ -126,14 +148,14 @@ public class MainActivity extends AppCompatActivity {
 
         if(flag) {
             addAnimalStorage();
-            showAnimalInfo();
+            showAnimalInfo(currentIndex);
             currentIndex++;
         }
 
 
     }
 
-    private void showAnimalInfo() {
+    private void showAnimalInfo(int currentIndex) {
         views.setMyAnimal(myAnimals.get(currentIndex));
         views.imageBlock.setImageURI(Uri.parse(myAnimals.get(currentIndex).getImageUri()));
     }

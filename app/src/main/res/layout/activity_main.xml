@@ -33,6 +33,7 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:contentDescription="@string/no_image_chosen"
                         android:id="@+id/imageBlock"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
@@ -104,7 +105,7 @@
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/next_prev"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -114,21 +115,30 @@
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/prev"
+                    android:layout_alignParentLeft="true"
                     android:onClick="Onclick"
                     android:layout_width="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="50dp"
-
                     android:src="@drawable/ic_arrow_back_black_24dp" />
 
                 <android.support.design.widget.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:onClick="deleteAnimal"
+                    android:src="@drawable/ic_delete_forever_black_24dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/remove"
+                    android:layout_height="wrap_content" />
+
+                <android.support.design.widget.FloatingActionButton
                     android:id="@+id/next"
+                    android:layout_marginEnd="16dp"
+                    android:layout_alignParentRight="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="Onclick"
-                    android:layout_marginLeft="50dp"
                     android:src="@drawable/ic_arrow_forward_black_24dp" />
-            </LinearLayout>
+            </RelativeLayout>
 
             <include
                 android:id="@+id/included"
